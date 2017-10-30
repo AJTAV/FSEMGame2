@@ -19,7 +19,6 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     var joinedplayers: [Int] = []
     
     @IBOutlet weak var displaymessage: UILabel!
-    
     @IBOutlet weak var inputfield: UITextField!
     
     
