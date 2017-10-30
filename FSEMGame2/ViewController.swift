@@ -20,6 +20,8 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     
     @IBOutlet weak var displaymessage: UILabel!
     @IBOutlet weak var inputfield: UITextField!
+    @IBOutlet weak var JoinButtonOutlet: UIButton!
+    @IBOutlet weak var DisconnectButtonOutlet: UIButton!
     
     
     //initialize the variables and call super
@@ -79,11 +81,19 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
             switch state {
             case .connected:
                 print(peerID.displayName);
+                self.JoinButtonOutlet.isHidden = true;
+               self.DisconnectButtonOutlet.isHidden = false;
+                self.displaymessage.text = "You are connected to" + peerID.displayName
+                break;
             case .connecting:
-                break
+                self.JoinButtonOutlet.isHidden = true
+                self.DisconnectButtonOutlet.isHidden = false;
+                break;
                 
             case .notConnected:
-                break
+                self.JoinButtonOutlet.isHidden = false;
+                self.DisconnectButtonOutlet.isHidden = true;
+                break;
                 
             }
         }
