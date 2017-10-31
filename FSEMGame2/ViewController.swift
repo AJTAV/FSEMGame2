@@ -18,8 +18,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     var mcsession: MCSession
     var joinedplayers: [Int] = []
     
-    @IBOutlet weak var displaymessage: UILabel!
-    @IBOutlet weak var inputfield: UITextField!
+   
     @IBOutlet weak var JoinButtonOutlet: UIButton!
     @IBOutlet weak var DisconnectButtonOutlet: UIButton!
     
@@ -52,10 +51,6 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         
     }
     
-    @IBAction func SendMessageButton(_ sender: Any) {
-        SendData(value: "A:" + inputfield.text!)
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,7 +78,6 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
                 print(peerID.displayName);
                 self.JoinButtonOutlet.isHidden = true;
                self.DisconnectButtonOutlet.isHidden = false;
-                self.displaymessage.text = "You are connected to" + peerID.displayName
                 break;
             case .connecting:
                 self.JoinButtonOutlet.isHidden = true
@@ -94,7 +88,6 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
                 self.JoinButtonOutlet.isHidden = false;
                 self.DisconnectButtonOutlet.isHidden = true;
                 break;
-                
             }
         }
     }
@@ -118,7 +111,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
             
         switch command {
         case .A:
-            self.displaymessage.text = parcedstring[1]
+            break;
         default:
             print("Command Does Not Exist in the Switch")
         
